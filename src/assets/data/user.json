@@ -1,0 +1,15 @@
+[{
+    "id":101,
+    "name":"Shahzad Ali",
+    "dob":"1989-08-13",
+    "designation":"Software Developer",
+    "skills":102
+  },
+{
+  "id":102,
+  "name":"Abdul Mateen",
+  "dob":"1989-08-13",
+  "designation":"Senior Software Developer",
+  "skills":101
+}
+]

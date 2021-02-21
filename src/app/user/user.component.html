@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 alert alert-danger" role="alert" *ngIf="showAlert == true">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>{{alertMsg}}!</strong>
+      </div>
+      <div class="col-md-2"></div>
+    <div class="col-md-8 text-center marginTop">
+     
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Skills</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let u of Users">
+                <td>{{u.name}}</td>
+                <td>{{u.designation}}</td>
+                <td>{{u.dob}}</td>
+                <td>{{u.skillName}}</td>
+                <td>
+                  <button type="button" class="btn tblBtn text-success" (click)="editUser(u)"> <i class="fa fa-edit"></i></button>
+                  <button type="button" class="btn text-danger" (click)="deleteUser(u)"> <i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    </div>    
+    </div>

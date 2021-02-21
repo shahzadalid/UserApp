@@ -1,0 +1,52 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-12 alert alert-success" role="alert" *ngIf="showAlert == true">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>{{alertMsg}}!</strong> 
+  </div>
+  <div class="col-md-2"></div>
+    <div class="col-md-8 marginTop">
+      <!-- {{userForm.value | json}}
+      <hr>
+      {{userModel | json}}
+      <hr>
+      {{userForm.form.valid}} -->
+      <h3>{{isAdding==1?"Add":"Edit"}} User</h3>
+      <hr>
+        <form #userForm="ngForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Name</label>
+                <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" id="inputEmail4" name="name" [(ngModel)]="userModel.name" placeholder="Enter your Name">
+                <small class="text-danger" [class.d-none]="name.valid || name.untouched">Please Enter Name</small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Date Of Birth</label>
+                <input type="date"  required #dob="ngModel" [class.is-invalid]="dob.invalid && dob.touched" class="form-control" id="inputEmail4" name="dob" [(ngModel)]="userModel.dob">
+                <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">Please Enter Date Of Birth</small>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Designation</label>
+                <input type="text" #design="ngModel" required [class.is-invalid]="design.invalid && design.touched" class="form-control" id="inputEmail4" name="design" [(ngModel)]="userModel.designation" placeholder="Enter Designation">
+              <small class="text-danger" [class.d-none]="design.valid || design.untouched">Please Enter designation</small>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Skills</label>
+                <select class="form-control" #skills1="ngModel" required [class.is-invalid]="skills1.invalid && skills1.touched" 
+                name="skills" [(ngModel)]="userModel.skills">
+                  <option selected value="">Select</option>
+                  <option *ngFor="let s of skills" [ngValue]="s.id">{{s.name}}</option>
+                </select>
+                <small class="text-danger" [class.d-none]="skills1.valid || skills1.untouched">Please Select Skill</small>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <button type="submit" style="margin: 0 5px 0 0;" class="btn btn-primary" [disabled]="userForm.invalid || isSaving" (click)="saveUser()">{{isAdding==0?"Edit":"Save"}}</button>
+              <button type="Cancel" class="btn btn-danger" (click)="clearForm()">Cancel</button>
+            </div>
+          </form>
+    </div>
+</div>
+</div>
